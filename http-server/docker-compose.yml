@@ -16,10 +16,10 @@ services:
       - TZ=America/Santiago
     networks:
       - web_network
-    deploy:
-      resources:
-        limits:
-          memory: 256M
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 256M
 
 networks:
   web_network:
