@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  apache:
+    image: arm64v8/httpd:2.4
+    container_name: raspberry_apache
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./apache/ssl:/usr/local/apache2/ssl
+    restart: always
+    environment:
+      - TZ=America/Santiago
+    networks:
+      - web_network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+networks:
+  web_network:
+    driver: bridge
