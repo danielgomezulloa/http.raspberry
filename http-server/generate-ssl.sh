@@ -28,7 +28,7 @@ ST = Santiago
 L = Santiago
 O = Raspberry Pi
 OU = IT Department
-CN = raspberry.local
+CN = 192.168.4.64
 emailAddress = admin@raspberry.local
 
 [v3_req]
@@ -41,8 +41,7 @@ DNS.1 = raspberry.local
 DNS.2 = www.raspberry.local
 DNS.3 = localhost
 IP.1 = 127.0.0.1
-IP.2 = 192.168.1.100
-IP.3 = 10.0.0.100
+IP.2 = 192.168.4.64
 EOF
 
 # Generar CSR con la configuración personalizada
@@ -71,7 +70,7 @@ echo "🔧 Configuración completada para:"
 echo "   - raspberry.local"
 echo "   - www.raspberry.local" 
 echo "   - localhost"
-echo "   - 127.0.0.1, 192.168.1.100, 10.0.0.100"
+echo "   - 127.0.0.1, 192.168.4.64"
 echo ""
 echo "⚠️  IMPORTANTE:"
 echo "   1. Estos son certificados autofirmados"
@@ -85,4 +84,4 @@ echo ""
 echo "🌐 Acceso HTTPS:"
 echo "   https://raspberry.local"
 echo "   https://localhost (si estás en la misma máquina)"
-echo "   https://[IP_DE_TU_RASPBERRY]"
+echo "   https://192.168.4.64"
