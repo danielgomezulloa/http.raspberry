@@ -9,8 +9,9 @@ services:
       - "443:443"
     volumes:
       - ./html:/usr/local/apache2/htdocs/
-      # - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./apache/ssl:/usr/local/apache2/ssl
+      - ./apache/extra:/usr/local/apache2/conf/extra
     restart: always
     environment:
       - TZ=America/Santiago
