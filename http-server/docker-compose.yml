@@ -29,12 +29,12 @@ services:
       - "21:21"
       - "21000-21010:21000-21010"
     volumes:
-      - ./html:/ftp/upload
+      - ./ftp/folders:/ftp/upload
       - ./ftp/logs:/var/log/vsftpd
+      - ./ftp/start.sh:/start.sh
     environment:
-      - USERS="ftpuser|ftppassword|/ftp/upload"
-      - ADDRESS=0.0.0.0
-      - PASV_ADDRESS=auto
+      - USERS=ftpuser|ftppassword123|/ftp/upload
+      - ADDRESS=192.168.4.64 #Revisar esto
       - PASV_MIN_PORT=21000
       - PASV_MAX_PORT=21010
       - LOG_STDOUT=true

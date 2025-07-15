@@ -1,2 +1,9 @@
 # Este archivo mantiene el directorio ssl en el repositorio
 # Los certificados y claves se generan localmente con el script generate-ssl.sh
+# Ignorar todos los archivos SSL generados
+/*.key
+/*.crt
+/*.csr
+/*.pem
+/*.conf
+/*.srl

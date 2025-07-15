@@ -1,8 +1,10 @@
 # Ignorar certificados y claves privadas SSL
-# apache/ssl/*.key
-# apache/ssl/*.crt
-# apache/ssl/*.csr
-# apache/ssl/openssl.conf
+apache/ssl/*.key
+apache/ssl/*.crt
+apache/ssl/*.csr
+apache/ssl/*.pem
+apache/ssl/*.srl
+apache/ssl/openssl.conf
 
 # Mantener el directorio pero no su contenido
-# !apache/ssl/.gitkeep
+!apache/ssl/.gitkeep
