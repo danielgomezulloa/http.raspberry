@@ -6,12 +6,10 @@ services:
     container_name: raspberry_apache
     ports:
       - "80:80"
-      # Puerto HTTPS deshabilitado
-      # - "443:443"
+      - "443:443"
     volumes:
       - ./html:/usr/local/apache2/htdocs/
       - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
-      # SSL deshabilitado temporalmente
       - ./apache/ssl:/usr/local/apache2/ssl
       - ./apache/extra:/usr/local/apache2/conf/extra
     restart: always
@@ -23,6 +21,28 @@ services:
     #   resources:
     #     limits:
     #       memory: 256M
+
+  ftp:
+    image: delfer/alpine-ftp-server:latest
+    container_name: raspberry_ftp
+    ports:
+      - "21:21"
+      - "21000-21010:21000-21010"
+    volumes:
+      - ./html:/ftp/upload
+      - ./ftp/logs:/var/log/vsftpd
+    environment:
+      - USERS="ftpuser|ftppassword|/ftp/upload"
+      - ADDRESS=0.0.0.0
+      - PASV_ADDRESS=auto
+      - PASV_MIN_PORT=21000
+      - PASV_MAX_PORT=21010
+      - LOG_STDOUT=true
+    restart: always
+    networks:
+      - web_network
+    depends_on:
+      - apache
 
 networks:
   web_network:
