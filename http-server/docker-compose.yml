@@ -11,6 +11,7 @@ services:
     volumes:
       - ./html:/usr/local/apache2/htdocs/
       - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      # SSL deshabilitado temporalmente
       - ./apache/ssl:/usr/local/apache2/ssl
       - ./apache/extra:/usr/local/apache2/conf/extra
     restart: always
